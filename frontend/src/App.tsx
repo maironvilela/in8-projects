@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import './styles/global.scss'
+import "./styles/global.scss";
 
- 
+
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-     <h1>HOME</h1>
+      <h1>HOME</h1>
   )
 }
 

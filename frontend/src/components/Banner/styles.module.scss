@@ -1,0 +1,16 @@
+.container{
+  height: 100vh;
+  background-image: url('../src/assets/images/background-mobile.svg');
+  color: var(--white);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:12rem;
+
+  h1{
+    font-family: 'Helvetica';
+    font-size: 2.5rem;
+    font-weight: normal;
+
+  }
+   }

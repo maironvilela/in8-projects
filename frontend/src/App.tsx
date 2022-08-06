@@ -1,8 +1,12 @@
-import { Header } from './components';
+import { Banner } from './components';
 import './styles/global.scss';
 
 function App() {
-  return <Header />;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 }
 
 export default App;

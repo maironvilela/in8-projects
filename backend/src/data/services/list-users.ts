@@ -1,19 +1,12 @@
 import { User } from '../../domain/models';
 import { ListUsersUseCase } from '../../domain/usecases';
+import { ListUsersRepository } from '../protocols/ListUsersRepository';
 
 export class ListUsersService implements ListUsersUseCase {
+  constructor(private listUsersRepository: ListUsersRepository) {}
   async execute(): Promise<User[]> {
-    const listUser = [
-      {
-        id: 'valid_id',
-        name: 'valid_name',
-        email: 'valid_email',
-        telefone: 'valid_telefone',
-        nascimento: new Date(),
-        createdAt: new Date(),
-      },
-    ];
+    const userList = await this.listUsersRepository.listUsers();
 
-    return new Promise(resolve => resolve(listUser));
+    return new Promise(resolve => resolve(userList));
   }
 }

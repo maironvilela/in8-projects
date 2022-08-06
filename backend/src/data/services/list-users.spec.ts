@@ -56,7 +56,7 @@ describe('List Users', () => {
     expect(listUserRepositoryStubSpy).toBeCalled();
   });
 
-  it('should throw exception case of failure int the listUser function', async () => {
+  it('Should throw exception case of failure int the listUser function', async () => {
     const { sut, listUserRepositoryStub } = makeSut();
 
     jest

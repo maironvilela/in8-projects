@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './styles.module.scss';
 
 type InputProps = {
@@ -6,7 +5,6 @@ type InputProps = {
   placeholder: string;
 };
 export function Input({ label, placeholder }: InputProps) {
-  const [inputRef, setInputReg] = useState();
   return (
     <section className={styles.container}>
       <span>{label}</span>

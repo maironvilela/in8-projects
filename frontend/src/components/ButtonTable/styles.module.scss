@@ -1,0 +1,15 @@
+.container{
+
+  button{
+    padding: 0.5rem 2.8rem;
+    border: 2px solid var(--brown-100);
+
+  }
+
+}
+
+.active{
+  border: 2px solid var(--blue-100)!important;
+  color: var(--blue-100);
+
+ }

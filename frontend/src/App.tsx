@@ -1,4 +1,4 @@
-import { Banner } from './components';
+import { Banner, Table } from './components';
 import { Registration } from './components/Registration';
 import './styles/global.scss';
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <Banner />
       <Registration />
+      <Table />
     </>
   );
 }

@@ -1,0 +1,29 @@
+.container{
+  padding-bottom: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   h2{
+    margin:2rem auto;
+    font-family: Helvetica;
+    text-align: center;
+    color: var(--blue-100);
+    font-weight: normal;
+    width: 14rem;
+     width: 100vw;
+      }
+
+   header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.1rem
+   }
+}
+.table{
+  > div{
+    border: 2px solid var(--blue-100);
+    padding-bottom: 2rem;
+  }
+}
+

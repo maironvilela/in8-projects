@@ -1,0 +1,10 @@
+.container{
+  color: var(--white);
+  background-image: url('../src/assets/images/rodape-mobile.svg');
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Roboto-Light";
+ }

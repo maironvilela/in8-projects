@@ -1,6 +1,14 @@
+// corrigir importação da fonte
 @font-face {
   font-family:'Helvetica';
   src: url('../src/assets/fonts/HelveticaUltraLt_0.ttf') format("truetype");
+  font-style: oblique;
+  font-weight: bold;
+}
+@font-face {
+  font-family:'Roboto-Light';
+  src: url('../src/assets/fonts/Roboto-Light_0.ttf') format("truetype");
+
 }
 
 * {

@@ -55,4 +55,18 @@ describe('List Users', () => {
 
     expect(listUserRepositoryStubSpy).toBeCalled();
   });
+
+  it('should throw exception case of failure int the listUser function', async () => {
+    const { sut, listUserRepositoryStub } = makeSut();
+
+    jest
+      .spyOn(listUserRepositoryStub, 'listUsers')
+      .mockReturnValueOnce(
+        new Promise((resolve, reject) => reject(new Error())),
+      );
+
+    const promise = sut.execute();
+
+    await expect(promise).rejects.toThrow();
+  });
 });

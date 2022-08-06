@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^4.0.0",
+    "@types/mongodb": "^4.0.7"
+  },
+  "dependencies": {
+    "mongodb": "^4.8.1"
+  }
+}

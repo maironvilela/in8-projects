@@ -65,9 +65,6 @@ describe('User Mongo Repository', () => {
     const data = makerUserParams();
 
     const user = await sut.addUser(data);
-
-    console.log(user);
-
     expect(user).toHaveProperty('id');
   });
 });

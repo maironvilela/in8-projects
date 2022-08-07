@@ -1,5 +1,9 @@
 import { FindUserByIdUseCase } from '../../../domain/usecases';
-import { ok } from '../../helpers/http-helpers';
+import {
+  badRequest,
+  internalServerError,
+  ok
+} from '../../helpers/http-helpers';
 import {
   Controllers,
   HttpRequest,
@@ -13,14 +17,10 @@ export class FindUserByIdController implements Controllers {
     private readonly validation: Validation,
   ) {}
   async handle(request: HttpRequest): Promise<HttpResponse> {
-    console.log(request.params);
-    /*
     try {
-      console.log('findUserByIdService');
-      console.log('Params: ', request.params.id);
+      const id = request.params.id;
 
-      const id = '123';
-      const error = this.validation.validate(request.body);
+      const error = this.validation.validate(request.params);
       if (error) {
         return badRequest(error);
       }
@@ -28,8 +28,8 @@ export class FindUserByIdController implements Controllers {
 
       return ok(user);
     } catch (err) {
+      console.log(err);
       return internalServerError(err as Error);
-    }*/
-    return ok({ request });
+    }
   }
 }

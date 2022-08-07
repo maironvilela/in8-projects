@@ -1,5 +1,9 @@
 import { AddUserUseCase } from '../../../domain/usecases';
-import { badRequest, ok } from '../../helpers/http-helpers';
+import {
+  badRequest,
+  internalServerError,
+  ok,
+} from '../../helpers/http-helpers';
 import {
   Controllers,
   HttpRequest,
@@ -13,19 +17,22 @@ export class AddUserController implements Controllers {
     private readonly validation: Validation,
   ) {}
   async handle(request: HttpRequest): Promise<HttpResponse> {
-    const { name, email, telefone, nascimento } = request.body;
+    try {
+      const { name, email, telefone, nascimento } = request.body;
 
-    const error = this.validation.validate(request.body);
-    if (error) {
-      return badRequest(error);
+      const error = this.validation.validate(request.body);
+      if (error) {
+        return badRequest(error);
+      }
+      const user = await this.AddUserService.execute({
+        name,
+        email,
+        telefone,
+        nascimento,
+      });
+      return ok(user);
+    } catch (err) {
+      return internalServerError(err as Error);
     }
-
-    const user = await this.AddUserService.execute({
-      name,
-      email,
-      telefone,
-      nascimento,
-    });
-    return ok(user);
   }
 }

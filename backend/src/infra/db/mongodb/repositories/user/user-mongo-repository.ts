@@ -28,6 +28,8 @@ export class UserMongoRepository
 
     const { insertedId } = await userCollection.insertOne(data);
 
-    return await mapById(insertedId);
+    const user = await mapById(insertedId);
+
+    return user;
   }
 }

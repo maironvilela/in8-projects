@@ -8,13 +8,15 @@ export const mapById = async (insertedId: ObjectId): Promise<UserDTO> => {
     _id: insertedId,
   });
 
+  console.log(result);
+
   const user = {
     id: result?._id.toString() ?? '',
     name: result?.name,
     email: result?.email,
-    telefone: result?.password,
-    nascimento: result?.password,
-    createdAt: result?.password,
+    telefone: result?.telefone,
+    nascimento: result?.nascimento,
+    createdAt: result?.createdAt,
   };
   return user;
 };

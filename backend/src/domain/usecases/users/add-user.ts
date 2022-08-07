@@ -7,6 +7,6 @@ export type AddUserParams = {
   telefone: string;
 };
 
-export interface AddUser {
+export interface AddUserUseCase {
   execute(data: AddUserParams): Promise<User>;
 }

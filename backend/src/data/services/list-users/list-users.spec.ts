@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
-import { ListUsersUseCase } from '../../domain/usecases';
-import { UserDTO } from '../dto/user';
-import { ListUsersRepository } from '../protocols/ListUsersRepository';
-import { ListUsersService } from './list-users';
+import { ListUsersService } from '.';
+import { ListUsersUseCase } from '../../../domain/usecases';
+import { UserDTO } from '../../dto/user';
+import { ListUsersRepository } from '../../protocols/list-user-repository';
 
 type MakeSutTypes = {
   sut: ListUsersUseCase;

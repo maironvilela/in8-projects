@@ -6,6 +6,15 @@ import { UserMongoRepository } from './user-mongo-repository';
 
 let userCollection: Collection;
 
+const makerUserParams = () => {
+  return {
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    telefone: faker.phone.number(),
+    nascimento: faker.date.past(),
+  };
+};
+
 describe('User Mongo Repository', () => {
   beforeAll(async () => {
     const uri = process.env.MONGO_URL ?? '';
@@ -19,7 +28,7 @@ describe('User Mongo Repository', () => {
     await MongoHelper.disconnect();
   });
 
-  it('should return user list ', async () => {
+  it('should be able return user list ', async () => {
     const sut = new UserMongoRepository();
 
     await userCollection.insertOne({
@@ -48,5 +57,17 @@ describe('User Mongo Repository', () => {
     expect(users[0]).toHaveProperty('telefone');
     expect(users[0]).toHaveProperty('nascimento');
     expect(users[0]).toHaveProperty('createdAt');
+  });
+
+  it('Should be able save user', async () => {
+    const sut = new UserMongoRepository();
+
+    const data = makerUserParams();
+
+    const user = await sut.addUser(data);
+
+    console.log(user);
+
+    expect(user).toHaveProperty('id');
   });
 });

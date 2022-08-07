@@ -1,6 +1,6 @@
-import { User } from '../../domain/models';
-import { ListUsersUseCase } from '../../domain/usecases';
-import { ListUsersRepository } from '../protocols/ListUsersRepository';
+import { User } from '../../../domain/models';
+import { ListUsersUseCase } from '../../../domain/usecases';
+import { ListUsersRepository } from '../../protocols/list-user-repository';
 
 export class ListUsersService implements ListUsersUseCase {
   constructor(private listUsersRepository: ListUsersRepository) {}

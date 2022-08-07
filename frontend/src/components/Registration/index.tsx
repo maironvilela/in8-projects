@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import api from '../../services/api';
 import { Input } from '../Input';
 import { Loading } from '../Loaders';
@@ -13,10 +13,15 @@ type Inputs = {
 };
 
 export function Registration() {
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
 
-  async function onSubmit(data: Inputs) {
+  const onSubmitHookForm: SubmitHandler<Inputs> = async data => {
     setIsLoading(true);
     const response = await api.post('/users', data).finally(() => {
       setTimeout(() => {
@@ -27,7 +32,7 @@ export function Registration() {
         }
       }, 6000);
     });
-  }
+  };
 
   return (
     <section className={styles.container}>
@@ -42,17 +47,24 @@ export function Registration() {
         ''
       )}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmitHookForm)}>
         <Input
           label="Nome"
           placeholder="Nome Completo"
-          register={{ ...register('name') }}
+          register={{ ...register('name', { required: true }) }}
         />
+        {errors.name && (
+          <span className={styles.errors}>(Nome é obrigatório)</span>
+        )}
+
         <Input
           label="Email"
           placeholder="fulanodetal@email.com"
-          register={{ ...register('email') }}
+          register={{ ...register('email', { required: true }) }}
         />
+        {errors.name && (
+          <span className={styles.errors}>(Email é obrigatório)</span>
+        )}
 
         <Input
           label="Telefone"

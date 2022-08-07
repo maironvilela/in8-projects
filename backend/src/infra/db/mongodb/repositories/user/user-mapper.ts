@@ -8,8 +8,6 @@ export const mapById = async (insertedId: ObjectId): Promise<UserDTO> => {
     _id: insertedId,
   });
 
-  console.log(result);
-
   const user = {
     id: result?._id.toString() ?? '',
     name: result?.name,

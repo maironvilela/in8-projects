@@ -5,5 +5,6 @@ import setupRoutes from './routes';
 const app = express();
 setupMiddlewares(app);
 setupRoutes(app);
+app.use(express.json());
 
 export default app;

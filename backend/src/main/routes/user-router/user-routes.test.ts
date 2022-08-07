@@ -19,14 +19,21 @@ describe('AddUser router', () => {
     await MongoHelper.disconnect();
   });
   test('should success router addUser', async () => {
-    const response = await request(app).post('/api/user').send({
+    const response = await request(app).post('/api/users').send({
       name: faker.name.findName(),
       email: faker.internet.email(),
       telefone: faker.phone.number(),
       nascimento: faker.date.past(),
     });
+    expect(response.statusCode).toEqual(200);
+  });
 
+  test('should success router findUserById', async () => {
+    const response = await request(app).get('/api/users/123').send();
     console.log(response.body);
+
+    console.log();
+
     expect(response.statusCode).toEqual(200);
   });
 });

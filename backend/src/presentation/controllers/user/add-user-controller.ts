@@ -2,13 +2,13 @@ import { AddUserUseCase } from '../../../domain/usecases';
 import {
   badRequest,
   internalServerError,
-  ok,
+  ok
 } from '../../helpers/http-helpers';
 import {
   Controllers,
   HttpRequest,
   HttpResponse,
-  Validation,
+  Validation
 } from '../../protocols';
 
 export class AddUserController implements Controllers {

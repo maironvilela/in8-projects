@@ -4,7 +4,7 @@ import {
   Controllers,
   HttpRequest,
   HttpResponse,
-  Validation
+  Validation,
 } from '../../protocols';
 
 export class AddUserController implements Controllers {

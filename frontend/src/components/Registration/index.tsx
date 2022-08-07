@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import api from '../../services/api';
 import { Input } from '../Input';
+import { Loading } from '../Loaders';
 import styles from './styles.module.scss';
 
 type Inputs = {
@@ -11,11 +13,20 @@ type Inputs = {
 };
 
 export function Registration() {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function onSubmit(data: Inputs) {
-    const response = await api.post('/users', data);
-    console.log(response.data);
+    setIsLoading(true);
+    const response = await api.post('/users', data).finally(() => {
+      setTimeout(() => {
+        // somente para simular uma demora na requisiçao
+        setIsLoading(false);
+        if (response.status === 200) {
+          reset();
+        }
+      }, 6000);
+    });
   }
 
   return (
@@ -23,6 +34,13 @@ export function Registration() {
       <header>
         <h2>Cadastro</h2>
       </header>
+      {isLoading ? (
+        <div>
+          <Loading />
+        </div>
+      ) : (
+        ''
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
@@ -48,7 +66,9 @@ export function Registration() {
           register={{ ...register('nascimento') }}
         />
 
-        <button type="submit">CADASTRAR</button>
+        <button disabled={isLoading} type="submit">
+          CADASTRAR
+        </button>
       </form>
     </section>
   );

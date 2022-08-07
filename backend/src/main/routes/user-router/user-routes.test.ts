@@ -29,10 +29,16 @@ describe('AddUser router', () => {
   });
 
   test('should success router findUserById', async () => {
-    const response = await request(app).get('/api/users/123').send();
-    console.log(response.body);
+    const responseSave = await request(app).post('/api/users').send({
+      name: faker.name.findName(),
+      email: faker.internet.email(),
+      telefone: faker.phone.number(),
+      nascimento: faker.date.past(),
+    });
 
-    console.log();
+    const id = responseSave.body.id;
+
+    const response = await request(app).get(`/api/users/${id}`).send();
 
     expect(response.statusCode).toEqual(200);
   });

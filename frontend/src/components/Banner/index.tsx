@@ -6,8 +6,10 @@ export function Banner() {
     <>
       <Header />
       <section className={styles.container}>
-        <h1>ESTÁGIO</h1>
-        <h1>PROVA DE SELEÇÃO</h1>
+        <div>
+          <h1>ESTÁGIO</h1>
+          <h1>PROVA DE SELEÇÃO</h1>
+        </div>
       </section>
     </>
   );

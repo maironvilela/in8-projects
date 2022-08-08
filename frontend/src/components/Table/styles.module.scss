@@ -26,5 +26,9 @@
     border-top: none;
     padding-bottom: 2rem;
   }
+
+  @media(min-width: 320px){
+    display: none;
+  }
 }
 

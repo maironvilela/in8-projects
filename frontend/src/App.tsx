@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Banner, Footer, Table } from './components';
 import { Registration } from './components/Registration';
+import { TableFull } from './components/TableFull';
 import api from './services/api';
 import './styles/global.scss';
 
@@ -38,6 +39,7 @@ function App() {
         setSkip={setSkip}
         numberOfRecords={numberOfRecords}
       />
+      <TableFull />
       <Footer user={userTable} />
     </>
   );

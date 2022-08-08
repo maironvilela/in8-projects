@@ -41,4 +41,11 @@ span.errors{
       color: var(--blue-100)
     }
   }
+  @media(min-width: 320px){
+    padding: 5rem 10rem;
+  }
+  @media(min-width: 768px){
+    padding: 5rem 20rem;
+  }
+
  }

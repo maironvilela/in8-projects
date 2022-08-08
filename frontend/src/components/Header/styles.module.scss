@@ -1,17 +1,32 @@
 .container{
-   position: absolute;
-   max-height: 56.8rem;
+   position: fixed;
+   background-color: var(--blue-200);
+   opacity: 0.8;
+   z-index: 9999;
+
+   .logo{
+    width: 10rem;
+   }
 
    div{
-    padding: 1rem;
-
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content:space-between;
      width: 100vw;
    }
+
+  @media(min-width: 768px){
+    padding: 1rem 2rem;
+
+    >div{
+      padding: 0 20rem
+    }
+
+
+  }
  }
 
- .logo{
-  width: 10rem;
- }
+
+
+

@@ -1,11 +1,22 @@
 import styles from './styles.module.scss';
 
-export function Footer() {
+type User = {
+  name?: string;
+  email?: string;
+  nascimento?: string;
+  telefone?: string;
+};
+
+type FooterProps = {
+  user: User;
+};
+
+export function Footer({ user }: FooterProps) {
   return (
     <footer className={styles.container}>
-      <strong>Fulano de Tal</strong>
-      <span>fulano@email.com.br</span>
-      <span>(31) 98855-5625</span>
+      <strong>{user.name}</strong>
+      <span>{user.email}</span>
+      <span>{user.telefone}</span>
       <span>Faculdade de Belo Horizonte</span>
     </footer>
   );

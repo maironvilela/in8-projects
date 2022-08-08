@@ -38,7 +38,7 @@ function App() {
         setSkip={setSkip}
         numberOfRecords={numberOfRecords}
       />
-      <Footer />
+      <Footer user={userTable} />
     </>
   );
 }

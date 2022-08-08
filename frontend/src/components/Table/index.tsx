@@ -1,8 +1,51 @@
+import { useState } from 'react';
 import { ButtonTable } from '../ButtonTable';
 import { DescriptionTable } from '../DescriptionTable';
 import styles from './styles.module.scss';
 
-export function Table() {
+type User = {
+  name?: string;
+  email?: string;
+  nascimento?: string;
+  telefone?: string;
+};
+
+type TableProps = {
+  user: User;
+  skip: number;
+  limit: number;
+  setSkip: (value: number) => void;
+  numberOfRecords: number;
+};
+export function Table({ user, setSkip, skip }: TableProps) {
+  const [listButton] = useState<number[]>([1, 2, 3, 4]);
+  /*
+  useEffect(() => {
+    const listButtonUseEffect = [];
+    console.log('Numero de Registros: ', numberOfRecords);
+    switch (numberOfRecords - 1) {
+      case 0:
+        setListButton([1]);
+        break;
+      case 1:
+        setListButton([1, 2]);
+        break;
+      case 2:
+        console.log('2 Registros');
+        setListButton([1, 2, 3]);
+        break;
+      case 3:
+        setListButton([1, 2, 3]);
+        break;
+      default:
+        console.log('Defaults');
+        for (let i = skip; i < numberOfRecords; i++) {
+          listButtonUseEffect.push(i);
+        }
+        setListButton(listButtonUseEffect);
+    }
+  }, [numberOfRecords, skip]);
+*/
   return (
     <section className={styles.container}>
       <header>
@@ -11,16 +54,20 @@ export function Table() {
 
       <div className={styles.table}>
         <header>
-          <ButtonTable pageNumber="1" isActive={true} />
-          <ButtonTable pageNumber="2" />
-          <ButtonTable pageNumber="3" />
-          <ButtonTable pageNumber="4" />
+          {listButton.map(pageNumber => (
+            <ButtonTable
+              pageNumber={pageNumber}
+              isActive={pageNumber === skip}
+              setSkip={setSkip}
+              key={pageNumber}
+            />
+          ))}
         </header>
         <div>
-          <DescriptionTable label="NOME" value="Fulano de Tal" />
-          <DescriptionTable label="EMAIL" value="fulano@email.com" />
-          <DescriptionTable label="NASC." value="25/01/2021" />
-          <DescriptionTable label="TEL." value="(31) 99985-9666" />
+          <DescriptionTable label="NOME" value={user.name || ''} />
+          <DescriptionTable label="EMAIL" value={user.email || ''} />
+          <DescriptionTable label="NASC." value={user.nascimento || ''} />
+          <DescriptionTable label="TEL." value={user.telefone || ''} />
         </div>
       </div>
     </section>

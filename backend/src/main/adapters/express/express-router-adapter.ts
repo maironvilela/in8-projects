@@ -6,6 +6,7 @@ export const expressRouterAdapter = (controller: Controllers) => {
     const httpRequest: HttpRequest = {
       body: req.body,
       params: req.params,
+      query: req.query,
     };
     const httpResponse = await controller.handle(httpRequest);
 

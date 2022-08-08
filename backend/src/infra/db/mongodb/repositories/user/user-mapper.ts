@@ -3,8 +3,8 @@ import { UserDTO } from '../../../../../data/dto/user';
 import { MongoHelper } from '../../helpers/mongo-helpers';
 
 export const mapById = async (insertedId: ObjectId): Promise<UserDTO> => {
-  const accountCollection = await MongoHelper.getCollection('users');
-  const result = await accountCollection.findOne({
+  const userCollection = await MongoHelper.getCollection('users');
+  const result = await userCollection.findOne({
     _id: insertedId,
   });
 

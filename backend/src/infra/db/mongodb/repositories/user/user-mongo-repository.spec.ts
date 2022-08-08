@@ -50,4 +50,15 @@ describe('User Mongo Repository', () => {
     expect(user.id).toBeTruthy();
     expect(user).toEqual(userSave);
   });
+
+  it('Should be able return first record', async () => {
+    const sut = new UserMongoRepository();
+    const data = makerUserParams();
+    await sut.addUser(data);
+    await sut.addUser(Object.assign({}, { ...data, name: 'Maria' }));
+
+    const users = await sut.findUsers({ skip: 0, limit: 2 });
+
+    expect(users.length).toEqual(2);
+  });
 });

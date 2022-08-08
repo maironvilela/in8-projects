@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+//import './assets/fonts/HelveticaUltraLt_0.ttf';
 import { Banner, Footer, Table } from './components';
 import { Registration } from './components/Registration';
 import { TableFull } from './components/TableFull';

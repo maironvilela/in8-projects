@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonTable } from '../ButtonTable';
 import { DescriptionTable } from '../DescriptionTable';
 import styles from './styles.module.scss';
@@ -17,9 +17,9 @@ type TableProps = {
   setSkip: (value: number) => void;
   numberOfRecords: number;
 };
-export function Table({ user, setSkip, skip }: TableProps) {
-  const [listButton] = useState<number[]>([1, 2, 3, 4]);
-  /*
+export function Table({ user, setSkip, skip, numberOfRecords }: TableProps) {
+  const [listButton, setListButton] = useState<number[]>([]);
+
   useEffect(() => {
     const listButtonUseEffect = [];
     console.log('Numero de Registros: ', numberOfRecords);
@@ -45,7 +45,7 @@ export function Table({ user, setSkip, skip }: TableProps) {
         setListButton(listButtonUseEffect);
     }
   }, [numberOfRecords, skip]);
-*/
+
   return (
     <section className={styles.container}>
       <header>

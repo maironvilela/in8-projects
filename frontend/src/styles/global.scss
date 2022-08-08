@@ -1,15 +1,23 @@
 // corrigir importação da fonte
 @font-face {
-  font-family:'Helvetica';
-  src: url('../src/assets/fonts/HelveticaUltraLt_0.ttf') format("truetype");
-  font-style: oblique;
-  font-weight: bold;
+  font-family: 'HelveticaUltraLight';
+  font-style: normal;
+  src: local('HelveticaUltraLight'), url(./fonts/HelveticaUltraLight.ttf) format('truetype');
 }
-@font-face {
-  font-family:'Roboto-Light';
-  src: url('../src/assets/fonts/Roboto-Light_0.ttf') format("truetype");
 
+@font-face {
+  font-family: 'Ps';
+  font-style: normal;
+  src: local('Roboto-Light'), url(./fonts/Roboto-Light.ttf.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  font-style: normal;
+  src: local('Ps'), url(./fonts/Roboto-Regular_0.ttf) format('truetype');
+}
+
+
 
 * {
   margin: 0;

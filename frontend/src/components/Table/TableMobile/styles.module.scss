@@ -1,0 +1,13 @@
+.container{
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  @media(min-width: 320px){
+    display: none;
+  }
+}
+

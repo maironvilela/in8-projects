@@ -1,29 +1,40 @@
 import { ObjectId } from 'mongodb';
+import { UsersPaginationDTO } from '../../../../../data/dto';
 import { UserDTO } from '../../../../../data/dto/user';
 import { AddUserRepository } from '../../../../../data/protocols/add-user-repository';
 import { FindUserByIdRepository } from '../../../../../data/protocols/find-user-by-id';
-import { FindUsersRepository } from '../../../../../data/protocols/find-users-repository';
+import { FindUsersPaginationRepository } from '../../../../../data/protocols/find-users-pagination-repository';
 import { User } from '../../../../../domain/models';
 import {
   AddUserParams,
-  FindUsersUseCaseParams
+  FindUsersPaginationParams
 } from '../../../../../domain/usecases';
 import { MongoHelper } from '../../helpers/mongo-helpers';
 import { mapById } from './user-mapper';
 
 export class UserMongoRepository
-  implements FindUserByIdRepository, AddUserRepository, FindUsersRepository
+  implements
+    FindUserByIdRepository,
+    AddUserRepository,
+    FindUsersPaginationRepository
 {
-  async findUsers({ skip, limit }: FindUsersUseCaseParams): Promise<UserDTO[]> {
+  async findUsers({
+    skip,
+    limit,
+  }: FindUsersPaginationParams): Promise<UsersPaginationDTO> {
     const userCollection = await MongoHelper.getCollection('users');
-    const result = await userCollection
+    const totalPage = await userCollection.count({});
+    const users = await userCollection
       .find<UserDTO>({})
       .skip(skip)
       .limit(limit)
       .sort({ name: 1 })
       .toArray();
 
-    return result;
+    return {
+      users,
+      totalPage,
+    };
   }
   async findUserById(id: string): Promise<User> {
     const user = await mapById(new ObjectId(id));

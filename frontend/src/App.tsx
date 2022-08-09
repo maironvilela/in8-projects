@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
-//import './assets/fonts/HelveticaUltraLt_0.ttf';
-import { Banner, Footer, Table } from './components';
+import { Banner, Footer } from './components';
 import { Registration } from './components/Registration';
-import { TableFull } from './components/TableFull';
+import { Table } from './components/Table';
 import api from './services/api';
 import './styles/global.scss';
 
-type User = {
+export type User = {
+  id?: string;
   name?: string;
   email?: string;
   nascimento?: string;
@@ -14,34 +15,33 @@ type User = {
 };
 
 function App() {
-  const [userTable, setUserTable] = useState<User>({});
-  const [skip, setSkip] = useState(0);
-  const [limit] = useState(4);
-  const [numberOfRecords, setNumberOfRecords] = useState(0);
+  const [users, setUsers] = useState<User[]>([]);
+  const [currentPage, setCurrentPage] = useState(2);
+  const [limit, setLimit] = useState(4);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    console.log({ skip, limit });
     const findFirstRecord = async () => {
-      const response = await api.get(`/users?skip=${skip}&limit=${limit}`);
-      setUserTable(response.data[0]);
-      setNumberOfRecords(response.data.length);
+      const response = await api.get(
+        `/users?skip=${currentPage}&limit=${limit}`,
+      );
+      setUsers(response.data.users);
+      setTotalPages(response.data.totalPage);
     };
     findFirstRecord();
-  }, [skip, limit]);
+  }, [currentPage, limit]);
 
   return (
     <>
       <Banner />
       <Registration />
       <Table
-        user={userTable}
-        skip={skip}
-        limit={limit}
-        setSkip={setSkip}
-        numberOfRecords={numberOfRecords}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        user={users[0]}
+        setCurrentPage={setCurrentPage}
       />
-      <TableFull />
-      <Footer user={userTable} />
+      <Footer user={users[0]} />
     </>
   );
 }

@@ -57,8 +57,10 @@ describe('User Mongo Repository', () => {
     await sut.addUser(data);
     await sut.addUser(Object.assign({}, { ...data, name: 'Maria' }));
 
-    const users = await sut.findUsers({ skip: 0, limit: 2 });
+    const result = await sut.findUsers({ skip: 0, limit: 2 });
 
-    expect(users.length).toEqual(2);
+    console.log(result);
+
+    expect(result.users.length).toEqual(2);
   });
 });

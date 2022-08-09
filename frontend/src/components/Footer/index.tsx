@@ -14,9 +14,9 @@ type FooterProps = {
 export function Footer({ user }: FooterProps) {
   return (
     <footer className={styles.container}>
-      <strong>{user.name}</strong>
-      <span>{user.email}</span>
-      <span>{user.telefone}</span>
+      <strong>{user?.name}</strong>
+      <span>{user?.email}</span>
+      <span>{user?.telefone}</span>
       <span>Faculdade de Belo Horizonte</span>
     </footer>
   );

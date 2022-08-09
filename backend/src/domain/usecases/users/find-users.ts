@@ -1,10 +1,10 @@
-import { User } from '../../models';
+import { UsersPaginationDTO } from '../../../data/dto';
 
-export type FindUsersUseCaseParams = {
+export type FindUsersPaginationParams = {
   skip: number;
   limit: number;
 };
 
 export interface FindUsersUseCase {
-  execute(data: FindUsersUseCaseParams): Promise<User[]>;
+  execute(data: FindUsersPaginationParams): Promise<UsersPaginationDTO>;
 }

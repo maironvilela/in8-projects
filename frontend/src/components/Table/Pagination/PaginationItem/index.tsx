@@ -1,20 +1,20 @@
 import styles from './styles.module.scss';
 
-type ButtonTableProps = {
+type PaginationItemProps = {
   pageNumber: number;
-  isActive?: boolean;
-  setSkip: (value: number) => void;
+  isActive: boolean;
+  setCurrentPage: (currentPage: number) => void;
 };
-export function ButtonTable({
+export function PaginationItem({
   pageNumber,
   isActive = false,
-  setSkip,
-}: ButtonTableProps) {
+  setCurrentPage,
+}: PaginationItemProps) {
   return (
     <section className={styles.container}>
       <button
         className={isActive ? styles.active : ''}
-        onClick={() => setSkip(pageNumber - 1)}
+        onClick={() => setCurrentPage(pageNumber)}
       >
         {pageNumber}
       </button>

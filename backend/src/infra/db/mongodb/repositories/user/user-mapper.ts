@@ -24,3 +24,13 @@ export const mapByDocument = (document: any): UserDTO => {
   const user = { ...documentWithoutId, id: _id };
   return user as UserDTO;
 };
+
+export const mapList = (documents: any): UserDTO[] => {
+  const result = documents.map((doc: any) => {
+    const { _id, ...docWithoutId } = doc;
+
+    return Object.assign({}, { ...docWithoutId, id: _id });
+  });
+
+  return result;
+};

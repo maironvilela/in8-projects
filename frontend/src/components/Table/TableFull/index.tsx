@@ -1,14 +1,22 @@
 import { User } from '../../../App';
+import { Pagination } from '../Pagination';
 import styles from './styles.module.scss';
 
 type TableFullProps = {
   users?: User[];
+  currentPage: number;
+  totalPages: number;
+  setCurrentPage: (currentPage: number) => void;
 };
 
-export function TableFull({ users }: TableFullProps) {
+export function TableFull({
+  users,
+  currentPage,
+  totalPages,
+  setCurrentPage,
+}: TableFullProps) {
   return (
     <section className={styles.container}>
-      <h1>🚧EM CONSTRUÇÃO🚧</h1>
       <table>
         <thead>
           <tr>
@@ -28,6 +36,12 @@ export function TableFull({ users }: TableFullProps) {
           </tr>
         ))}
       </table>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
     </section>
   );
 }

@@ -16,7 +16,8 @@ export type User = {
 
 function App() {
   const [users, setUsers] = useState<User[]>([]);
-  const [currentPage, setCurrentPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(0);
+
   const [limit, setLimit] = useState(4);
   const [totalPages, setTotalPages] = useState(0);
 

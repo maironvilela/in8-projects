@@ -10,7 +10,7 @@ import {
   FindUsersPaginationParams
 } from '../../../../../domain/usecases';
 import { MongoHelper } from '../../helpers/mongo-helpers';
-import { mapById } from './user-mapper';
+import { mapById, mapList } from './user-mapper';
 
 export class UserMongoRepository
   implements
@@ -32,7 +32,7 @@ export class UserMongoRepository
       .toArray();
 
     return {
-      users,
+      users: mapList(users),
       totalPage,
     };
   }

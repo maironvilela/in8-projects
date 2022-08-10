@@ -1,6 +1,25 @@
 .container{
-   font-size: 1.4rem;
+  font-size: 1.4rem;
   padding: 1rem;
+
+  nav{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2rem;
+     width: 95vw;
+    button{
+      border-radius: 100%;
+      padding:8px;
+      display: flex;
+      align-items: center;
+      border: none;
+    }
+
+   }
+
+
+
 
   h1{
     text-align: center;
@@ -12,10 +31,9 @@
   }
 
   table{
-    width: 100vw;
+    width: 96vw;
     border-spacing: 0px;
-    table-layout: fixed;
-    margin-left:auto;
+     margin-left:auto;
     margin-right:auto;
 
     th{
@@ -26,21 +44,15 @@
      }
 
     td{
-      word-break: break-all;
+       word-break: break-all;
 
       border-top:2px solid var(--blue-100);;
       border-right: 2px solid var(--blue-100);
       padding: 1rem;
       text-align: center;
 
-      &.col-nascimento{
-         color:red;
-         width: 15rem;
-       }
 
-       &.col-email{
-        word-break: break-all;
-       }
+
     }
 
   }
@@ -48,8 +60,15 @@
   @media(max-width: 320px){
     display: none;
   }
+
   @media(max-width: 480px){
     font-size: 1rem;
+
+  }
+
+  @media(max-width: 720px){
+    font-size: 1rem;
+
   }
 
 }

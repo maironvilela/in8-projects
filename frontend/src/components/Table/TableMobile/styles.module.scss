@@ -5,6 +5,15 @@
   align-items: center;
   justify-content: center;
 
+  button{
+    padding: 0.5rem 2.8rem;
+    border: 2px solid var(--brown-100);
+   }
+   nav{
+    margin-top:2rem;
+    display: flex;
+     justify-content: center;
+  }
 
 
   @media(min-width: 320px){

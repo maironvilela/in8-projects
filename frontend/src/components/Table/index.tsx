@@ -27,7 +27,12 @@ export function Table({
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
       />
-      <TableFull users={users} />
+      <TableFull
+        users={users}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }

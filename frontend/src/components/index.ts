@@ -7,4 +7,3 @@ export * from './Table/Pagination';
 export * from './Table/Pagination/PaginationItem';
 export * from './Table/TableFull';
 export * from './Table/TableMobile';
-

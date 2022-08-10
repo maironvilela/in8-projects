@@ -1,5 +1,6 @@
 .container{
-  padding: 2rem 5rem;
+   font-size: 1.4rem;
+  padding: 1rem;
 
   h1{
     text-align: center;
@@ -11,22 +12,50 @@
   }
 
   table{
-    width: 100%;
+    width: 100vw;
+    border-spacing: 0px;
+    table-layout: fixed;
+    margin-left:auto;
+    margin-right:auto;
+
     th{
+      border-top:2px solid var(--blue-100);;
+
       padding: 1rem 0;
-      border-right: 2px solid var(--blue-100);
-    }
+      border-top: none;
+     }
+
     td{
+      word-break: break-all;
+
       border-top:2px solid var(--blue-100);;
       border-right: 2px solid var(--blue-100);
       padding: 1rem;
       text-align: center;
+
+      &.col-nascimento{
+         color:red;
+         width: 15rem;
+       }
+
+       &.col-email{
+        word-break: break-all;
+       }
     }
+
   }
 
   @media(max-width: 320px){
     display: none;
   }
+  @media(max-width: 480px){
+    font-size: 1rem;
+  }
 
 }
+
+
+
+
+
 

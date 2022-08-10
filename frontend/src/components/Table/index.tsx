@@ -1,18 +1,18 @@
 import { User } from '../../App';
-import { Pagination } from './Pagination';
 import styles from './styles.module.scss';
+import { TableFull } from './TableFull';
 import { TableMobile } from './TableMobile';
 
 type TableProps = {
   currentPage: number;
   totalPages: number;
-  user: User;
+  users: User[];
   setCurrentPage: (currentPage: number) => void;
 };
 export function Table({
   currentPage,
   totalPages,
-  user,
+  users,
   setCurrentPage,
 }: TableProps) {
   return (
@@ -21,12 +21,13 @@ export function Table({
         <h2>Lista de Cadastros</h2>
       </header>
 
-      <Pagination
+      <TableMobile
+        user={users[0]}
         currentPage={currentPage}
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
       />
-      <TableMobile user={user} />
+      <TableFull users={users} />
     </div>
   );
 }

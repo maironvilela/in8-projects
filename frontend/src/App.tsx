@@ -27,6 +27,7 @@ function App() {
       );
       setUsers(response.data.users);
       setTotalPages(response.data.totalPage);
+      console.log(response.data.users);
     };
     findFirstRecord();
   }, [currentPage, limit]);
@@ -38,7 +39,7 @@ function App() {
       <Table
         currentPage={currentPage}
         totalPages={totalPages}
-        user={users[0]}
+        users={users}
         setCurrentPage={setCurrentPage}
       />
       <Footer user={users[0]} />

@@ -7,13 +7,13 @@ type User = {
   telefone?: string;
 };
 
-type FooterProps = {
+interface FooterProps extends React.HTMLProps<HTMLDivElement> {
   user: User;
-};
+}
 
-export function Footer({ user }: FooterProps) {
+export function Footer({ user, ...rest }: FooterProps) {
   return (
-    <footer className={styles.container}>
+    <footer className={styles.container} {...rest}>
       <strong>{user?.name}</strong>
       <span>{user?.email}</span>
       <span>{user?.telefone}</span>

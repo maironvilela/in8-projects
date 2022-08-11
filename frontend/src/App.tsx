@@ -37,14 +37,15 @@ function App() {
   return (
     <AppProvider>
       <Banner />
-      <Registration />
+      <Registration id="register" />
       <Table
+        id="list"
         currentPage={currentPage}
         totalPages={totalPages}
         users={users}
         setCurrentPage={setCurrentPage}
       />
-      <Footer user={users[0]} />
+      <Footer user={users[0]} id="about_me" />
     </AppProvider>
   );
 }

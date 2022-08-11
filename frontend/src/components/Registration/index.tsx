@@ -12,7 +12,7 @@ type Inputs = {
   telefone: string;
 };
 
-export function Registration() {
+export function Registration({ ...rest }) {
   const {
     register,
     handleSubmit,
@@ -35,7 +35,7 @@ export function Registration() {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} {...rest}>
       <header>
         <h2>Cadastro</h2>
       </header>

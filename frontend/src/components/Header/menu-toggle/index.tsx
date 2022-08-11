@@ -16,9 +16,15 @@ export function MenuToggle() {
           </button>
           <nav>
             <ul>
-              <li>Lista</li>
-              <li>Sobre Mim</li>
-              <li>Cadastro</li>
+              <li>
+                <a href="#list"> Lista</a>
+              </li>
+              <li>
+                <a href="#about_me"> Sobre Mim</a>
+              </li>
+              <li>
+                <a href="#register"> Cadastro</a>
+              </li>
             </ul>
           </nav>
         </div>

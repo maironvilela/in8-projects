@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Banner, Footer } from './components';
 import { Registration } from './components/Registration';
 import { Table } from './components/Table';
+import { AppProvider } from './hooks';
 import api from './services/api';
 import './styles/global.scss';
 
@@ -34,7 +35,7 @@ function App() {
   }, [currentPage, limit]);
 
   return (
-    <>
+    <AppProvider>
       <Banner />
       <Registration />
       <Table
@@ -44,7 +45,7 @@ function App() {
         setCurrentPage={setCurrentPage}
       />
       <Footer user={users[0]} />
-    </>
+    </AppProvider>
   );
 }
 

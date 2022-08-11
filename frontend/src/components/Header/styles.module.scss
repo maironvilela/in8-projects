@@ -1,7 +1,7 @@
 .container{
    position: fixed;
    background-color: var(--blue-200);
-   opacity: 0.8;
+   opacity: 0.9;
    z-index: 9999;
 
    .logo{
@@ -9,18 +9,23 @@
    }
 
    div{
-    padding: 1rem 2rem;
+   > button{
+      background: none;
+      border: none;
+    }
+    padding: 0.3rem 2rem;
     display: flex;
     align-items: center;
     justify-content:space-between;
-     width: 100vw;
+    width: 100vw;
    }
+
 
   @media(min-width: 768px){
     padding: 1rem 2rem;
 
     >div{
-      padding: 0 20rem
+      padding: 0 20rem;
     }
 
 

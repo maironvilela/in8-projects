@@ -2,35 +2,65 @@
    position: fixed;
    background-color: var(--blue-200);
    opacity: 0.9;
-   z-index: 9999;
+   z-index: 1;
 
-   .logo{
-    width: 10rem;
-   }
+   button{
+    background: none;
+    border: none;
+  }
+}
 
-   div{
-   > button{
-      background: none;
-      border: none;
-    }
+
+   .content{
     padding: 0.3rem 2rem;
     display: flex;
     align-items: center;
     justify-content:space-between;
     width: 100vw;
+    display: relative;
+
+    button{
+      z-index: 2;
+
+      &.show-menu{
+        svg{
+          path{
+            stroke:var(--white);
+          }
+        }
+      }
+    }
+
+    nav{
+      position:absolute;
+      padding:6rem;
+      color: var(--white);
+      left: 0;
+      top: 0;
+      left: 0;
+      background: var(--blue-100);
+
+      li{
+        margin-top: 1.5rem;
+      }
+
+    }
    }
 
 
-  @media(min-width: 768px){
-    padding: 1rem 2rem;
+   .logo{
+    width: 10rem;
+   }
 
-    >div{
-      padding: 0 20rem;
-    }
+
+
+
+   @media(min-width: 768px){
+
 
 
   }
- }
+
 
 
 

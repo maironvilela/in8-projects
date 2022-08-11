@@ -7,6 +7,7 @@ interface MenuToggleContextProps {
 interface MenuToggleContextState {
   isShowMenu: boolean;
   setToggleMenu: () => void;
+  setIsShowMenu: (isShowMenu: boolean) => void;
 }
 
 const MenuToggleContext = createContext<MenuToggleContextState>(
@@ -21,7 +22,9 @@ const MenuToggleProvider = ({ children }: MenuToggleContextProps) => {
   }, [isShowMenu]);
 
   return (
-    <MenuToggleContext.Provider value={{ isShowMenu, setToggleMenu }}>
+    <MenuToggleContext.Provider
+      value={{ isShowMenu, setToggleMenu, setIsShowMenu }}
+    >
       {children}
     </MenuToggleContext.Provider>
   );

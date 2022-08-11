@@ -12,25 +12,21 @@ export function Header() {
           onClick={() => setToggleMenu()}
           className={`${isShowMenu ? styles['show-menu'] : ''}`}
         >
-          <MenuIconSVG />
+          <MenuIconSVG className={styles.logo} />
         </button>
-        {isShowMenu ? (
-          <nav>
-            <ul>
-              <li>
-                <a href="#list"> Lista</a>
-              </li>
-              <li>
-                <a href="#about_me"> Sobre Mim</a>
-              </li>
-              <li>
-                <a href="#register"> Cadastro</a>
-              </li>
-            </ul>
-          </nav>
-        ) : (
-          ''
-        )}
+        <nav className={`${isShowMenu ? styles['show-menu'] : ''}`}>
+          <ul>
+            <li>
+              <a href="#list"> Lista</a>
+            </li>
+            <li>
+              <a href="#about_me"> Sobre Mim</a>
+            </li>
+            <li>
+              <a href="#register"> Cadastro</a>
+            </li>
+          </ul>
+        </nav>
 
         <img
           src="../src/assets/images/logo-in8-dev.svg"

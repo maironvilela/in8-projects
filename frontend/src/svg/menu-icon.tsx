@@ -1,4 +1,4 @@
-export function MenuIconSVG() {
+export function MenuIconSVG({ ...rest }) {
   return (
     <svg
       width="24"
@@ -6,6 +6,7 @@ export function MenuIconSVG() {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         d="M21 10H3"

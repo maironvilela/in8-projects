@@ -3,15 +3,14 @@
    background-color: var(--blue-200);
    opacity: 0.9;
    z-index: 1;
+   min-height: 4rem;
 
    button{
     background: none;
     border: none;
   }
 }
-
-
-   .content{
+.content{
     padding: 0.3rem 2rem;
     display: flex;
     align-items: center;
@@ -21,14 +20,6 @@
 
     button{
       z-index: 2;
-
-      &.show-menu{
-        svg{
-          path{
-            stroke:var(--white);
-          }
-        }
-      }
     }
 
     nav{
@@ -39,23 +30,81 @@
       top: 0;
       left: 0;
       background: var(--blue-100);
+      display: none;
 
       li{
         margin-top: 1.5rem;
+
       }
 
+      &.show-menu{
+        display: block;
+      }
     }
-   }
-
-
-   .logo{
+}
+.logo{
     width: 10rem;
-   }
+}
 
-
+.show-menu{
+    svg{
+      path{
+        stroke:var(--white);
+      }
+    }
+}
 
 
    @media(min-width: 768px){
+    .container{
+      background: none;
+      position: absolute;
+    }
+
+    .content{
+      display: grid;
+      grid-template-areas:"logo menu";
+      padding: 1rem 15rem;
+
+      button{
+        display: none;
+      }
+
+      nav{
+        background: none;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        display: block;
+
+
+        ul{
+          display: flex;
+          flex-direction: row;
+          align-items:center;
+          height:100%;
+
+
+          li+li::before {
+             content: '🔘';
+             margin: 0 1rem;
+          }
+        }
+
+      }
+    }
+    .logo{
+      width: 10rem;
+      grid-area: logo;
+      padding-top: 0.4rem;
+
+
+
+     }
+     .menu{
+      grid-area: menu;
+     }
 
 
 

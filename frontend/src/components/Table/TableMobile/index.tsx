@@ -1,4 +1,4 @@
-import { User } from '../../../App';
+import { User } from '../../../hooks/use-users';
 import { DescriptionTable } from '../DescriptionTable';
 import { Pagination } from '../Pagination';
 import styles from './styles.module.scss';
@@ -7,7 +7,7 @@ type TableProps = {
   user: User;
   currentPage: number;
   totalPages: number;
-  setCurrentPage: (currentPage: number) => void;
+  setCurrentPage: (currentPage: string) => void;
 };
 export function TableMobile({
   user,

@@ -1,9 +1,9 @@
 import styles from './styles.module.scss';
 
 type PaginationItemProps = {
-  pageNumber: number;
+  pageNumber: string;
   isActive: boolean;
-  setCurrentPage: (currentPage: number) => void;
+  setCurrentPage: (currentPage: string) => void;
 };
 export function PaginationItem({
   pageNumber,

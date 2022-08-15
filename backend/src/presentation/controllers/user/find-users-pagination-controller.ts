@@ -5,12 +5,13 @@ import { Controllers, HttpRequest, HttpResponse } from '../../protocols';
 export class FindUsersPaginationController implements Controllers {
   constructor(private FindUsersPaginationService: FindUsersUseCase) {}
   async handle(request: HttpRequest): Promise<HttpResponse> {
-    const { skip, limit } = request.query;
+    const { page, limit } = request.query;
 
-    console.log({ skip, limit });
+    console.log({ page, limit });
+
     try {
       const user = await this.FindUsersPaginationService.execute({
-        skip: Number(skip),
+        skip: Number(page),
         limit: Number(limit),
       });
       return ok(user);

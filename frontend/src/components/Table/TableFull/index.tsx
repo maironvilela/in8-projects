@@ -1,4 +1,4 @@
-import { User } from '../../../App';
+import { User } from '../../../hooks/use-users';
 import { Pagination } from '../Pagination';
 import styles from './styles.module.scss';
 
@@ -6,7 +6,7 @@ type TableFullProps = {
   users?: User[];
   currentPage: number;
   totalPages: number;
-  setCurrentPage: (currentPage: number) => void;
+  setCurrentPage: (currentPage: string) => void;
 };
 
 export function TableFull({

@@ -26,7 +26,7 @@ export class UserMongoRepository
     const totalPage = await userCollection.count({});
     const users = await userCollection
       .find<UserDTO>({})
-      .skip(skip)
+      .skip(skip - 1)
       .limit(limit)
       .sort({ name: 1 })
       .toArray();

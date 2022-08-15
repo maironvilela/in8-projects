@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { PaginationItem } from './PaginationItem';
 
 type Page = {
-  pageNumber: number;
+  pageNumber: string;
   isActive: boolean;
 };
 
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
-  setCurrentPage: (currentPage: number) => void;
+  setCurrentPage: (currentPage: string) => void;
 };
 
 export function Pagination({
@@ -29,6 +29,14 @@ export function Pagination({
         init = 1;
         finalPage = totalPages < 4 ? totalPages : 4;
         break;
+      case totalPages - 1:
+        finalPage = totalPages;
+        init = totalPages - 3;
+        break;
+      case totalPages:
+        finalPage = totalPages;
+        init = totalPages - 3;
+        break;
 
       default: {
         init = currentPage - 1;
@@ -39,7 +47,7 @@ export function Pagination({
     const pages: Page[] = [];
     for (let i = init; i <= finalPage; i++) {
       pages.push({
-        pageNumber: i,
+        pageNumber: String(i),
         isActive: i === currentPage,
       });
     }

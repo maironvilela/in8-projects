@@ -1,4 +1,4 @@
-import { User } from '../../App';
+import { User } from '../../hooks/use-users';
 import styles from './styles.module.scss';
 import { TableFull } from './TableFull';
 import { TableMobile } from './TableMobile';
@@ -7,7 +7,7 @@ interface TableProps extends React.HTMLProps<HTMLDivElement> {
   currentPage: number;
   totalPages: number;
   users: User[];
-  setCurrentPage: (currentPage: number) => void;
+  setCurrentPage: (currentPage: string) => void;
 }
 export function Table({
   currentPage,

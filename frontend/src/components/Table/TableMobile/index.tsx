@@ -1,31 +1,28 @@
-import { User } from '../../../hooks/use-users';
+import { useEffect } from 'react';
+import { useUsers } from '../../../hooks/use-users';
 import { DescriptionTable } from '../DescriptionTable';
 import { Pagination } from '../Pagination';
 import styles from './styles.module.scss';
 
-type TableProps = {
-  user: User;
-  currentPage: number;
-  totalPages: number;
-  setCurrentPage: (currentPage: string) => void;
-};
-export function TableMobile({
-  user,
-  currentPage,
-  totalPages,
-  setCurrentPage,
-}: TableProps) {
+export function TableMobile() {
+  const { currentPage, totalPages, users, setCurrentPage, setLimit } =
+    useUsers();
+
+  useEffect(() => {
+    setLimit('1');
+  }, [setLimit]);
+
   return (
     <div className={styles.container}>
       <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
+        currentPage={Number(currentPage)}
+        totalPages={Number(totalPages)}
         setCurrentPage={setCurrentPage}
       />
-      <DescriptionTable label="NOME" value={user?.name || ''} />
-      <DescriptionTable label="EMAIL" value={user?.email || ''} />
-      <DescriptionTable label="NASC." value={user?.nascimento || ''} />
-      <DescriptionTable label="TEL." value={user?.telefone || ''} />
+      <DescriptionTable label="NOME" value={users[0]?.name || ''} />
+      <DescriptionTable label="EMAIL" value={users[0]?.email || ''} />
+      <DescriptionTable label="NASC." value={users[0]?.nascimento || ''} />
+      <DescriptionTable label="TEL." value={users[0]?.telefone || ''} />
     </div>
   );
 }

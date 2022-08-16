@@ -1,20 +1,16 @@
-import { User } from '../../../hooks/use-users';
+import { useEffect } from 'react';
+import { useUsers } from '../../../hooks/use-users';
 import { Pagination } from '../Pagination';
 import styles from './styles.module.scss';
 
-type TableFullProps = {
-  users?: User[];
-  currentPage: number;
-  totalPages: number;
-  setCurrentPage: (currentPage: string) => void;
-};
+export function TableFull() {
+  const { currentPage, totalPages, users, setCurrentPage, setLimit } =
+    useUsers();
 
-export function TableFull({
-  users,
-  currentPage,
-  totalPages,
-  setCurrentPage,
-}: TableFullProps) {
+  useEffect(() => {
+    setLimit('4');
+  }, [setLimit]);
+
   return (
     <section className={styles.container}>
       <table>
@@ -38,8 +34,8 @@ export function TableFull({
       </table>
 
       <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
+        currentPage={Number(currentPage)}
+        totalPages={Number(totalPages)}
         setCurrentPage={setCurrentPage}
       />
     </section>

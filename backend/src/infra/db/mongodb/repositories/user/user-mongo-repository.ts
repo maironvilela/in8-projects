@@ -23,10 +23,12 @@ export class UserMongoRepository
     limit,
   }: FindUsersPaginationParams): Promise<UsersPaginationDTO> {
     const userCollection = await MongoHelper.getCollection('users');
-    const totalPage = await userCollection.count({});
+    const totalPage = Math.ceil((await userCollection.count({})) / limit);
+
+    console.log({ page: skip, limit });
     const users = await userCollection
       .find<UserDTO>({})
-      .skip(skip - 1)
+      .skip((skip - 1) * limit)
       .limit(limit)
       .sort({ name: 1 })
       .toArray();

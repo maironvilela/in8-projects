@@ -24,7 +24,6 @@ export function Pagination({
     let finalPage = totalPages < currentPage + 3 ? totalPages : currentPage + 2;
 
     switch (currentPage) {
-      case 0:
       case 1:
         init = 1;
         finalPage = totalPages < 4 ? totalPages : 4;
@@ -35,7 +34,7 @@ export function Pagination({
         break;
       case totalPages:
         finalPage = totalPages;
-        init = totalPages - 3;
+        init = totalPages > 4 ? totalPages - 3 : 1;
         break;
 
       default: {

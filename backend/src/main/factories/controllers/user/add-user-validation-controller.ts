@@ -5,7 +5,7 @@ import { RequiredFieldsValidation } from '../../../../validation/required-fields
 import { ValidationComposite } from '../../../../validation/validation-composite';
 
 export const makeAddUserValidation = (): Validation => {
-  const fields = ['email', 'name', 'telefone', 'nascimento'];
+  const fields = ['email', 'name', 'phone', 'birthDate'];
   const validations: Validation[] = [];
 
   for (const field of fields) {

@@ -3,8 +3,8 @@ import { User } from '../../models';
 export type AddUserParams = {
   name: string;
   email: string;
-  nascimento: Date;
-  telefone: string;
+  birthDate: Date;
+  phone: string;
 };
 
 export interface AddUserUseCase {

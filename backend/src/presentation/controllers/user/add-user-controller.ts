@@ -14,11 +14,13 @@ import {
 export class AddUserController implements Controllers {
   constructor(
     private AddUserService: AddUserUseCase,
-    private readonly validation: Validation,
+    private readonly validation: Validation
   ) {}
   async handle(request: HttpRequest): Promise<HttpResponse> {
     try {
-      const { name, email, telefone, nascimento } = request.body;
+      const { name, email, phone, birthDate } = request.body;
+
+      console.log(request.body);
 
       const error = this.validation.validate(request.body);
       if (error) {
@@ -27,8 +29,8 @@ export class AddUserController implements Controllers {
       const user = await this.AddUserService.execute({
         name,
         email,
-        telefone,
-        nascimento,
+        phone,
+        birthDate
       });
       return ok(user);
     } catch (err) {

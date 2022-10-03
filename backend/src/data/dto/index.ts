@@ -1,3 +1,3 @@
-export * from './user';
-export * from './users-pagination';
+export * from './user'
+export * from './users-pagination'
 

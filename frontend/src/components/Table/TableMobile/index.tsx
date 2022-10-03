@@ -21,8 +21,8 @@ export function TableMobile() {
       />
       <DescriptionTable label="NOME" value={users[0]?.name || ''} />
       <DescriptionTable label="EMAIL" value={users[0]?.email || ''} />
-      <DescriptionTable label="NASC." value={users[0]?.nascimento || ''} />
-      <DescriptionTable label="TEL." value={users[0]?.telefone || ''} />
+      <DescriptionTable label="NASC." value={users[0]?.birthDate || ''} />
+      <DescriptionTable label="TEL." value={users[0]?.phone || ''} />
     </div>
   );
 }

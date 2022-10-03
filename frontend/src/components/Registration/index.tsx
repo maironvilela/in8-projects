@@ -8,8 +8,8 @@ import styles from './styles.module.scss';
 type Inputs = {
   name: string;
   email: string;
-  nascimento: string;
-  telefone: string;
+  birthDate: string;
+  phone: string;
 };
 
 export function Registration({ ...rest }) {
@@ -69,13 +69,13 @@ export function Registration({ ...rest }) {
         <Input
           label="Telefone"
           placeholder="(xx) xxxxx-xxxx"
-          register={{ ...register('telefone') }}
+          register={{ ...register('phone') }}
         />
 
         <Input
-          label="Nascimento"
+          label="birthDate"
           placeholder="dd/MM/aaaa"
-          register={{ ...register('nascimento') }}
+          register={{ ...register('birthDate') }}
         />
 
         <button disabled={isLoading} type="submit">

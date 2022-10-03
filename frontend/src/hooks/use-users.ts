@@ -5,8 +5,8 @@ export type User = {
   id?: string;
   name: string;
   email: string;
-  nascimento: string;
-  telefone: string;
+  birthDate: string;
+  phone: string;
 };
 
 type UsersPagination = {

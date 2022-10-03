@@ -10,8 +10,8 @@ const makerUserParams = () => {
   return {
     name: faker.name.findName(),
     email: faker.internet.email(),
-    telefone: faker.phone.number(),
-    nascimento: faker.date.past(),
+    phone: faker.phone.number(),
+    birthDate: faker.date.past()
   };
 };
 
@@ -58,8 +58,6 @@ describe('User Mongo Repository', () => {
     await sut.addUser(Object.assign({}, { ...data, name: 'Maria' }));
 
     const result = await sut.findUsers({ skip: 0, limit: 2 });
-
-    console.log(result);
 
     expect(result.users.length).toEqual(2);
   });

@@ -18,7 +18,7 @@ export function TableFull() {
           <tr>
             <th className={styles['col-name']}>Nome</th>
             <th className={styles['col-email']}>Email</th>
-            <th className={styles['col-nascimento']}>Nascimento</th>
+            <th className={styles['col-birthDate']}>Nascimento</th>
             <th className={styles['col-tel']}>Telefone</th>
           </tr>
         </thead>
@@ -27,8 +27,8 @@ export function TableFull() {
           <tr key={user.id}>
             <td className={styles['col-name']}>{user.name}</td>
             <td className={styles['col-email']}>{user.email}</td>
-            <td className={styles['col-nascimento']}>{user.nascimento}</td>
-            <td className={styles['col-tel']}>{user.telefone}</td>
+            <td className={styles['col-birthDate']}>{user.birthDate}</td>
+            <td className={styles['col-tel']}>{user.phone}</td>
           </tr>
         ))}
       </table>

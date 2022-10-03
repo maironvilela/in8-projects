@@ -5,16 +5,16 @@ import { MongoHelper } from '../../helpers/mongo-helpers';
 export const mapById = async (insertedId: ObjectId): Promise<UserDTO> => {
   const userCollection = await MongoHelper.getCollection('users');
   const result = await userCollection.findOne({
-    _id: insertedId,
+    _id: insertedId
   });
 
   const user = {
     id: result?._id.toString() ?? '',
     name: result?.name,
     email: result?.email,
-    telefone: result?.telefone,
-    nascimento: result?.nascimento,
-    createdAt: result?.createdAt,
+    phone: result?.phone,
+    birthDate: result?.birthDate,
+    createdAt: result?.createdAt
   };
   return user;
 };

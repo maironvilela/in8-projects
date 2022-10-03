@@ -8,10 +8,10 @@ export default (router: Router): void => {
   router.post('/users', expressRouterAdapter(makeAddUserControllerFactory()));
   router.get(
     '/users/:id',
-    expressRouterAdapter(makeFindUserByIdControllerFactory()),
+    expressRouterAdapter(makeFindUserByIdControllerFactory())
   );
   router.get(
     '/users/',
-    expressRouterAdapter(makeFindUsersPaginationControllerFactory()),
+    expressRouterAdapter(makeFindUsersPaginationControllerFactory())
   );
 };

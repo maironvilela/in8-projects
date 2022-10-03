@@ -22,8 +22,8 @@ describe('AddUser router', () => {
     const response = await request(app).post('/api/users').send({
       name: faker.name.findName(),
       email: faker.internet.email(),
-      telefone: faker.phone.number(),
-      nascimento: faker.date.past(),
+      phone: faker.phone.number(),
+      birthDate: faker.date.past()
     });
     expect(response.statusCode).toEqual(200);
   });
@@ -32,8 +32,8 @@ describe('AddUser router', () => {
     const responseSave = await request(app).post('/api/users').send({
       name: faker.name.findName(),
       email: faker.internet.email(),
-      telefone: faker.phone.number(),
-      nascimento: faker.date.past(),
+      phone: faker.phone.number(),
+      birthDate: faker.date.past()
     });
 
     const id = responseSave.body.id;

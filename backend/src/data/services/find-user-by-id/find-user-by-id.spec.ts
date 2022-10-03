@@ -18,9 +18,9 @@ const makeFindUserByIdRepositorySut = (): FindUserByIdRepository => {
         id: userId,
         name: faker.name.findName(),
         email: faker.internet.email(),
-        telefone: faker.phone.number(),
-        nascimento: faker.date.past(),
-        createdAt: faker.date.past(),
+        phone: faker.phone.number(),
+        birthDate: faker.date.past(),
+        createdAt: faker.date.past()
       };
 
       return new Promise(resolve => resolve(user));
@@ -46,7 +46,7 @@ describe('Find Users By Id', () => {
 
     const listUserRepositoryStubSpy = jest.spyOn(
       findUserByIdRepositoryStub,
-      'findUserById',
+      'findUserById'
     );
 
     await sut.execute(userId);
@@ -60,7 +60,7 @@ describe('Find Users By Id', () => {
     jest
       .spyOn(findUserByIdRepositoryStub, 'findUserById')
       .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error())),
+        new Promise((resolve, reject) => reject(new Error()))
       );
 
     const promise = sut.execute(userId);

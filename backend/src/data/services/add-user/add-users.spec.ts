@@ -12,8 +12,8 @@ const makerUserParams = () => {
   const user = {
     name: faker.name.findName(),
     email: faker.internet.email(),
-    telefone: faker.phone.number(),
-    nascimento: faker.date.past(),
+    phone: faker.phone.number(),
+    birthDate: faker.date.past()
   };
   return user;
 };
@@ -25,9 +25,9 @@ const makeAddUserRepositorySut = (): AddUserRepository => {
         id: faker.datatype.uuid(),
         name: faker.name.findName(),
         email: faker.internet.email(),
-        telefone: faker.phone.number(),
-        nascimento: faker.date.past(),
-        createdAt: faker.date.past(),
+        phone: faker.phone.number(),
+        birthDate: faker.date.past(),
+        createdAt: faker.date.past()
       };
 
       return new Promise(resolve => resolve(user));
@@ -57,7 +57,7 @@ describe('Add User', () => {
 
     const listUserRepositoryStubSpy = jest.spyOn(
       addUserRepositoryStub,
-      'addUser',
+      'addUser'
     );
 
     await sut.execute(user);
@@ -65,8 +65,8 @@ describe('Add User', () => {
     expect(listUserRepositoryStubSpy).toBeCalledWith({
       name: user.name,
       email: user.email,
-      telefone: user.telefone,
-      nascimento: user.nascimento,
+      phone: user.phone,
+      birthDate: user.birthDate
     });
   });
 
@@ -77,7 +77,7 @@ describe('Add User', () => {
     jest
       .spyOn(addUserRepositoryStub, 'addUser')
       .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error())),
+        new Promise((resolve, reject) => reject(new Error()))
       );
 
     const promise = sut.execute(user);

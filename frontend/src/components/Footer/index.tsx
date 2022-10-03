@@ -3,8 +3,8 @@ import styles from './styles.module.scss';
 type User = {
   name?: string;
   email?: string;
-  nascimento?: string;
-  telefone?: string;
+  birthDate?: string;
+  phone?: string;
 };
 
 interface FooterProps extends React.HTMLProps<HTMLDivElement> {
@@ -16,7 +16,7 @@ export function Footer({ user, ...rest }: FooterProps) {
     <footer className={styles.container} {...rest}>
       <strong>{user?.name}</strong>
       <span>{user?.email}</span>
-      <span>{user?.telefone}</span>
+      <span>{user?.phone}</span>
       <span>Faculdade de Belo Horizonte</span>
     </footer>
   );

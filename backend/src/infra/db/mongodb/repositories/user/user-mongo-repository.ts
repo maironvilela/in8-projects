@@ -20,12 +20,11 @@ export class UserMongoRepository
 {
   async findUsers({
     skip,
-    limit,
+    limit
   }: FindUsersPaginationParams): Promise<UsersPaginationDTO> {
     const userCollection = await MongoHelper.getCollection('users');
     const totalPage = Math.ceil((await userCollection.count({})) / limit);
 
-    console.log({ page: skip, limit });
     const users = await userCollection
       .find<UserDTO>({})
       .skip((skip - 1) * limit)
@@ -35,7 +34,7 @@ export class UserMongoRepository
 
     return {
       users: mapList(users),
-      totalPage,
+      totalPage
     };
   }
   async findUserById(id: string): Promise<User> {
@@ -46,8 +45,10 @@ export class UserMongoRepository
   async addUser(data: AddUserParams): Promise<UserDTO> {
     const userCollection = await MongoHelper.getCollection('users');
 
+    console.log(data);
+
     const { insertedId } = await userCollection.insertOne(
-      Object.assign({}, data, { createdAt: new Date() }),
+      Object.assign({}, data, { createdAt: new Date() })
     );
 
     const user = await mapById(insertedId);

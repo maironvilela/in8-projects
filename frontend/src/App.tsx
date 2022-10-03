@@ -4,19 +4,24 @@ import { Banner, Footer } from './components';
 import { Registration } from './components/Registration';
 import { Table } from './components/Table';
 import { AppProvider } from './hooks';
-import api from './services/api';
+import { useUsers } from './hooks/use-users';
 import './styles/global.scss';
 
+export type User = {
+  name: string;
+  email: string;
+  birthDate: string;
+  phone: string;
+};
+
 function App() {
-  const [loggedUser, setLoggedUser] = useState();
+  const [loggedUser, setLoggedUser] = useState<User>();
+  const { users, setLimit } = useUsers();
 
   useEffect(() => {
-    const findUserById = async (id: string) => {
-      const { data } = await api.get(`users/${id}`);
-      setLoggedUser(data);
-    };
-    findUserById('62f51a24288939550b5ef240');
-  }, []);
+    setLimit('1');
+    setLoggedUser(users[0]);
+  }, [setLimit, users]);
 
   return (
     <AppProvider>

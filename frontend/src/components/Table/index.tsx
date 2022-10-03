@@ -9,7 +9,6 @@ export function Table({ ...rest }: TableProps) {
       <header>
         <h2>Lista de Cadastros</h2>
       </header>
-
       <TableMobile />
       <TableFull />
     </div>

@@ -1,11 +1,5 @@
+import { User } from '../../App';
 import styles from './styles.module.scss';
-
-type User = {
-  name?: string;
-  email?: string;
-  birthDate?: string;
-  phone?: string;
-};
 
 interface FooterProps extends React.HTMLProps<HTMLDivElement> {
   user: User;

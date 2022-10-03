@@ -17,9 +17,15 @@
 
 
   h1{
-    font-family: 'HelveticaUltraLight';
-    font-size: 2.5rem;
+    font-family: 'Helvetica';
+    font-size: 2.4rem;
     font-weight: normal;
+    }
+
+   h2{
+    font-family: 'Helvetica';
+    font-size: 1.8rem;
+    font-weight:100;
    }
 
   @media (min-width: 320px){
@@ -36,6 +42,8 @@
 
       h1{
         text-align: center;
+        font-weight: normal;
+        font-size: 4rem;
       }
   }
 

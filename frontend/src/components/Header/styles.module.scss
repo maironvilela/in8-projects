@@ -32,10 +32,7 @@
       background: var(--blue-100);
       display: none;
 
-      li{
-        margin-top: 1.5rem;
 
-      }
 
       &.show-menu{
         display: block;
@@ -57,9 +54,9 @@
 
    @media(min-width: 768px){
     .container{
-      background: none;
-      position: absolute;
-    }
+      background: var(--blue-200);
+      opacity: 0.8;
+     }
 
     .content{
       display: grid;
@@ -86,10 +83,10 @@
           height:100%;
 
 
-          li+li::before {
+           li+li::before {
              content: '🔘';
-             margin: 0 1rem;
-          }
+             margin: 0.8rem;
+           }
         }
 
       }

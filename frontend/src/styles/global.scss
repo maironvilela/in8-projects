@@ -1,24 +1,8 @@
-// corrigir importação da fonte
-@font-face {
-  font-family: 'HelveticaUltraLight';
-  font-style: normal;
-  src: local('HelveticaUltraLight'), url(../assets/fonts/HelveticaUltraLight.ttf) format('truetype');
-}
 
 @font-face {
-  font-family: 'Ps';
-  font-style: normal;
-  src: local('Roboto-Light'), url(../assets/fonts/Roboto-Light.ttf.ttf) format('truetype');
+  font-family: 'Helvetica';
+  src: local('Helvetica'), url(../fonts/Helvetica25-UltraLight.ttf) format('truetype');
 }
-
-@font-face {
-  font-family: 'Roboto-Regular';
-  font-style: normal;
-  src: local('Ps'), url(./fonts/Roboto-Regular_0.ttf) format('truetype');
-}
-
-
-
 * {
   margin: 0;
   padding: 0;

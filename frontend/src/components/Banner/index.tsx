@@ -8,7 +8,7 @@ export function Banner() {
       <section className={styles.container}>
         <div>
           <h1>ESTÁGIO</h1>
-          <h1>PROVA DE SELEÇÃO</h1>
+          <h2>PROVA DE SELEÇÃO</h2>
         </div>
       </section>
     </>

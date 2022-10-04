@@ -73,7 +73,7 @@ export function Registration({ ...rest }) {
         />
 
         <Input
-          label="birthDate"
+          label="Nascimento"
           placeholder="dd/MM/aaaa"
           register={{ ...register('birthDate') }}
         />
